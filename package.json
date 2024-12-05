@@ -8,12 +8,12 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host ",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host ",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "serve": "vite serve"
+    "serve": "vite serve --host "
   },
   "dependencies": {
     "echarts": "^5.5.1",

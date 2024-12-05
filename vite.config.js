@@ -8,6 +8,11 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  server:{
+
+        host:'0.0.0.0',     
+
+  },
   base: 'https://mdn.github.io/todo-vue/',
   resolve: {
     alias: {
