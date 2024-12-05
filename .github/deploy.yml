@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main # 根据你的实际主分支名称调整，这里假设是 main 分支触发部署
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 'v20.18.0' # 根据你的项目需求调整 Node.js 版本
+    - name: Install dependencies
+      run: npm install
+    - name: Build project
+      run: npm run serve # 假设你的 Vue 项目构建命令是这个，根据实际情况调整
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir:./dist # 通常 Vue 项目构建后的输出目录是 dist，按实际调整
